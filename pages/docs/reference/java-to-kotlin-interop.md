@@ -203,6 +203,21 @@ int c = Obj.CONST;
 int d = ExampleKt.MAX;
 int v = C.VERSION;
 ```
+## Calling Methods That Return Unit
+Calling a method that returns the Kotlin Unit type using a Java lambda expression requires an explicit return.
+In Kotlin:
+``` kotlin
+typealias ClickHandler = (String) -> Unit
+class MyClass {
+    var handler: ClickHandler? = null
+}
+```
+In Java:
+``` java
+MyClass myClass = new MyClass();
+myClass.setHandler(value->{return null}); // OK
+myClass.setHandler(value->{}); // Compiler Error -> Missing Return Type
+```
 
 ## Static Methods
 
