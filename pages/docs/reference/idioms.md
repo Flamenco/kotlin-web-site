@@ -145,6 +145,14 @@ val values = ...
 val email = values["email"] ?: throw IllegalStateException("Email is missing!")
 ```
 
+### Invoke lambda for result if null
+``` kotlin
+val aStringValue = couldBeNull() ?: {
+            Logger.getLogger("MyLog").warning("Default Value Used")
+            "This is the default value"
+        }.invoke()
+```
+
 ### Execute if not null
 
 ``` kotlin
